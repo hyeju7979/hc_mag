@@ -1,0 +1,482 @@
+<!-- 스마트스킨 코드 시작 :: 지우지 마세요 -->
+<script>
+	try{
+	var SMS_TD_shop_name = "magjay.com";
+	var SMS_TD_DataObj={SMS_TD_shop_host:SMS_TD_shop_name,SMS_TD_shop_hosting:"mk",SMS_TD_userinfo:{SMS_TD_virtual_url:"",SMS_TD_host:"",SMS_TD_login_check:<!--/if_login/-->true<!--/else/-->false<!--/end_if/-->,SMS_TD_referrer:document.referrer,SMS_TD_current_path:window.location.pathname,SMS_TD_current_url:document.location.href,SMS_TD_useragent:navigator.userAgent},SMS_TD_pagelist:{SMS_TD_cate:{},SMS_TD_detail:{},SMS_TD_order:{},SMS_TD_order_complete:{},SMS_TD_mypage:{},SMS_TD_search:{}}};var SMS_TD_util={init:function(data_parm){this.hostst();this.vir_path(data_parm)},html_re:function(str){str=str.replace(/^\s+|\s+$/g,"");str=str.replace(/	/g,"");str=str.replace(/'/gi,"");str=str.replace(/"/gi,"");return str.replace(/(<([^>]+)>)/gi,"")},num_re:function(str){return str.replace(/[^0-9]/g,"")},x_code:function(noc){if(noc){var _num=noc.split('xcode')[1];return this.num_re(_num)}else{return noc=""}},m_code:function(noc){if(noc){var _num=noc.split('mcode')[1];return this.num_re(_num)}else{return noc=""}},s_code:function(noc){if(noc){var _num=noc.split('scode')[1];return this.num_re(_num)}else{return noc=""}},hostst:function(){var SMS_hostUrl=window.location.hostname;var SMS_hostre=SMS_hostUrl.replace(/www|wwww|com|co|kr|jp|cafe24|skin-|skin\d{1,2}(?!\d)|100|mobile[0-9]{1,2}|mobile[0-9]{1,2}/g,'');var SMS_hostre1=SMS_hostre.replace('m.','');var SMS_hostst=SMS_hostre1.replace(/\./g,'');SMS_TD_DataObj.SMS_TD_userinfo.SMS_TD_host=SMS_hostst},vir_url:function(_insert){var sms_w_path=window.location.pathname;var sms_pst=sms_w_path.split('/').slice(-1)[0];var SMS_vir_url="sms_"+sms_pst+"?base=page";for(var i in _insert){for(var _i in _insert[i].path){if(_insert[i].path[_i]==sms_w_path){SMS_vir_url=_insert[i].html+_insert[i].parm}}};if(sms_w_path.indexOf("mypage.html")!=-1){for(var e in _insert.myshop_main){for(var _e in _insert.myshop_main[e].path){if(_insert.myshop_main[e].path[_e]==window.location.search){SMS_vir_url=_insert.myshop_main[e].html+_insert.myshop_main[e].parm}}}};if(sms_w_path.indexOf("board.html")!=-1){SMS_vir_url="sms_board/main.html?page=list";for(var e in _insert.board_m){for(var _e in _insert.board_m[e].path){if(window.location.search.indexOf(_insert.board_m[e].path)!=-1){SMS_vir_url=_insert.board_m[e].html+_insert.board_m[e].parm}}}};SMS_TD_DataObj.SMS_TD_userinfo.SMS_TD_virtual_url=SMS_vir_url},vir_path:function(_parm_data){var data_parm=_parm_data;if(data_parm==undefined||data_parm=="undefined"){data_parm="base=page"};var SMS_path_obj={main:{path:["/","/m","/m/","/m//","/main.html","/m/main.html","/m/main.html/","/m/main.html//"],html:"sms_main.html?",parm:"main_id=m"},list:{path:["/m/product_list.html"],html:"sms_list.html?",parm:data_parm},detail:{path:["/m/product.html"],html:"sms_detail.html?",parm:data_parm},search:{path:["/m/search.html"],html:"sms_search.html?",parm:data_parm},order:{path:["/m/order.html"],html:"sms_order.html?",parm:data_parm},ordercom:{path:["/m/order_complete.html"],html:"sms_ordercom.html?",parm:data_parm},cart:{path:["/m/basket.html"],html:"sms_cart.html?",parm:data_parm},myshop_check:{path:["/m/attendance.html"],html:"sms_mypage/stamp.html?",parm:"page=main"},myshop_check:{path:["/m/order_list.html"],html:"sms_mypage/orderlist.html?",parm:"page=main"},myshop_main:{sms_my_page01:{path:[""],html:"sms_mypage/main.html?",parm:"page=main"},sms_my_page02:{path:["?mypage_type=mycoupon"],html:"sms_mypage/coupon.html?",parm:"page=main"},sms_my_page03:{path:["?mypage_type=myreserve"],html:"sms_mypage/reserve.html?",parm:"page=main"},sms_my_page04:{path:["?mypage_type=myemoney"],html:"sms_mypage/deposit.html?",parm:"page=main"},sms_my_page05:{path:["?mypage_type=mypoint"],html:"sms_mypage/point.html?",parm:"page=main"},sms_my_page06:{path:["?mypage_type=mywishlist"],html:"sms_mypage/wish.html?",parm:"page=main"},sms_my_page07:{path:["?mypage_type=myseegoods"],html:"sms_mypage/recent.html?",parm:"page=main"},sms_my_page08:{path:["?mypage_type=myarticle"],html:"sms_mypage/article.html?",parm:"page=main"},sms_my_page09:{path:["?mypage_type=mym2mboard"],html:"sms_mypage/mymboard.html?",parm:"page=main"},},member:{path:["/m/login.html"],html:"sms_login.html?",parm:data_parm},agreement:{path:["/m/join_contract.html"],html:"sms_agreement.html?",parm:data_parm},join:{path:["/m/join_us.html"],html:"sms_join.html?",parm:data_parm},joinresult:{path:["/m/join_complete.html"],html:"sms_join_result.html?",parm:data_parm},board_m:{board_m01:{path:["type=i"],html:"sms_board/write.html?",parm:"page=write"},board_m02:{path:["type=v"],html:"sms_board/view.html?",parm:"page=view"},},power_r:{path:["/m/power_review.html"],html:"sms_power_review.html?",parm:data_parm}};this.vir_url(SMS_path_obj)}};SMS_TD_util.init()}catch(e){}
+</script>
+<!-- 스마트스킨 코드 끝 :: 지우지 마세요 -->
+
+<script>
+	/* SMARTSKIN. Logout/Header Page API */
+	var SML_DESC_GROBAL={user:{u_id:'<!--/user_id/-->',u_name:'<!--/user_name/-->',u_reserve:'<!--/user_reserve/-->',u_deposit:'<!--/user_deposit/-->',u_coupon:'<!--/remain_coupon_count/-->'}};
+	/* SMARTSKIN. Logout/Header Page API END */
+
+	/**삭제하지 마세요!! 삭제 시 기능오류 발생할 수 있습니다!! [스마트스킨]**/
+	//스마트스킨 Object
+	var SMARTSKIN_MAIN_OBJECT={
+		"popup":false, // 메인팝업 미 사용시 false 로 변경 사용:true
+		"popupCloseTime":0, // 팝업 자동 닫기 [미사용시 0] / 사용시 시간 적용 [1초:1000]
+		"mallname":"스마트스킨", //북마크 시 아이콘 이름
+		"mallcode":"ad=smartskin_Bookmark", // 북마크로 몰 접근 시 광고 코드
+		"bookmarkAuto":false,//북마크 자동 설치 true,false 변경
+		"bookmarkConfirm" : false,//북마크 자동 설치 alert, 미 사용시 false로 변경
+		"AppAble" : false,//앱으로 보기 웹으로 보기 팝업 사용, 미 사용시 false로 변경
+		"AppCount" : 3, // 웹페이지 방문 카운트 수
+		"AppIOSLink" : "",// IOS 앱 링크
+		"AppAndroidLink" : "" // 안드로이드 앱 링크
+	};
+	/**삭제하지 마세요!! 삭제 시 기능오류 발생할 수 있습니다!! [스마트스킨]**/
+</script>
+
+<script src="http://jjackiec.img7.kr/web/wibimages/js/jquery.rwdImageMaps.min.js"></script>
+
+<style>
+.SMS_Kakao{
+    /**display:none;**/
+    position: fixed;
+    bottom: 128px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    z-index: 101;
+}
+.SMS_Kakao img{
+	width:100%;
+}
+</style>
+
+<!--
+	2018 FW 매그제이 프로젝트 BY 혜윰엔콕
+ -->
+
+<!-- Basement WHITE -->
+<!-- 전체 햄버거 사용 시 SMS_MenuAll_wrap -->
+<!-- 기존 햄버거 사용 시 Basement -->
+
+<!-- Basement WHITE -->
+<!-- 전체 햄버거 사용 시 SMS_MenuAll_wrap -->
+<!-- 기존 햄버거 사용 시 Basement -->
+<div id="Basement">
+	<div id="BasementContent" >
+		<!-- snapfit start-->
+		<span id = 'solutiontype' style='display:none;'>makeshop</span>
+		<span id="sf_user_name" class="xans-member-var-id" style="display:none;" ><!--/user_id/--></span>
+
+		<!-- snapfit end -->
+		<div class="MenuAllCon">
+			<div class="logout_Module">
+				<div class="hc_language">KOREAN</div>
+				<div class="left_Same Close_Icon"></div>
+			</div>
+			<script>
+				try{
+					 function smartskinAppLink(){
+						var userAgent = navigator.userAgent.toLowerCase();
+
+						if(userAgent.match('iphone') || userAgent.match('ipad') || userAgent.match('ipod')) {
+						   document.location.href='https://itunes.apple.com/kr/app/%EB%A7%A4%EA%B7%B8%EC%A0%9C%EC%9D%B4-magjay/id1152319127?mt=8';
+						}else if(userAgent.match('android')){
+						   document.location.href='market://details?id=com.makeshop.powerapp.jjackiec';
+						}
+					 }
+				}catch(e){}
+			</script>
+
+			<!--/if_login/--><!-- /////////////////////  로그인 후 ///////////////////// -->
+			<div class="SMS_user_info">
+				<div class="user_Inbody">
+					<div class="text">
+						<b><!--/user_name/-->고객님 로그인 상태입니다.</b>
+					</div>
+					<div class="logout_text">
+						<div class="h_header_menu_l">
+							<ul>
+								<li><a href="/m/mypage.html">MY PAGE</a><span></span></li>
+								<li><a href="/m/order_list.html">ORDER</a><span></span></li>
+								<li><a href="<!--/link_basket/-->">CART<!--/if_user_basket_count(+1)/--><b>(<!--/user_basket_count/-->)</b><!--/end_if/--></a><span></span></li>
+								<li><a href="/m/order_list.html">DELIVERY<!--/if_delivery_count/--><b>(<!--/delivery_count/-->)</b><!--/end_if/--></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="SMS_MemberMenu">
+				<a>회원 메뉴</a>
+				<b></b>
+			</div>
+
+			<div class="SMS_MemberMenu_toggle" style="display: none;">
+				<!-- 적립금 영역 -->
+				<div class="SMS_ham_myp_points">
+					<ul>
+						<li>
+							<div class="myp_icon coupon_i"></div>
+							<a href="/m/coupon_list.html">쿠폰 : <em><!--/remain_coupon_count/-->개</em></a><span></span>
+						</li>
+						<li>
+							<div class="myp_icon num_i"></div>
+							<a href="/m/mypage.html?mypage_type=myreserve">적립금 : <em><!--/user_reserve/-->원</em></a><span></span>
+						</li>
+						<li>
+							<div class="myp_icon point_i"></div>
+							<a href="/m/mypage.html?mypage_type=myemoney">예치금 : <em><!--/user_deposit/-->원</em></a>
+						</li>
+					</ul>
+				</div>
+				<!-- //적립금 영역 -->
+
+				<div class="SMS_leftMyp">
+					<div class="scon">
+						<ul>
+							<li><a href="/m/join_us.html">회원정보</a></li>
+							<li><a href="/m/order_list.html">주문내역</a></li>
+							<li><a href="<!--/link_basket/-->">장바구니<b><!--/if_user_basket_count(+1)/-->(<!--/user_basket_count/-->)<!--/end_if/--></b></a></li>
+							<li><a href="<!--/link_wishlist/-->">관심상품<b><!--/if_user_wishlist_count(+1)/-->(<!--/user_wishlist_count/-->)<!--/end_if/--></b></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="SMS_Search_ham">
+					<div class="container_Box">
+						<div class="search">
+							<form name="top_search" method="get" action="search.html" id="smartskinSearch">
+								<input type="hidden" value="new" name="search_sort">
+								<input type="hidden" value="" name="search_category">
+								<input type="text" name="s" value="">
+								<span class="search_btn" onclick="smartskinSearchSubmit(this)">검색</span>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/else/-->
+			<!-- ///////////////////// 로그인 전 시작 ///////////////////// -->
+			<div class="logout_text">
+				<div class="h_header_menu">
+					<ul>
+						<li><a href="/m/login.html">LOG-IN</a></li>
+						<li><a href="/m/join_contract.html">JOIN</a></li>
+						<li><a href="/m/cs_center_view.html">Q&amp;A</a></li>
+					</ul>
+					<ul>
+						<li><a href="/m/mypage.html">MY PAGE</a></li>
+						<li><a href="/m/board.html?code=jjackiec_board4">REVIEW</a></li>
+						<li><a href="/m/order_list.html">배송조회</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="SMS_Search_ham">
+				<div class="container_Box">
+					<div class="search">
+						<form name="top_search" method="get" action="search.html" id="smartskinSearch">
+							<input type="hidden" value="new" name="search_sort">
+							<input type="hidden" value="" name="search_category">
+							<input type="text" name="s" value="">
+							<span class="search_btn" onclick="smartskinSearchSubmit(this)">검색</span>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="text">
+				<span><img src="http://magjay.co.kr/web/2018/fw/mobile/img/bi_mj/ci_magjay.jpg" alt="매그제이 CI" /></span>
+				<span>
+					고객님은 '로그아웃' 상태입니다.<br />
+					APP 다운시 더 많은 정보와 혜택을 받으 실 수 있습니다.
+				</span>
+			</div>
+			<!--/end_if/-->
+			<!-- ///////////////////// 로그인 전  끝 ///////////////////// -->
+			<div class="SMS_All_tapMenu">
+		<div class="">카테고리</div>
+		<div class="SelMenu">매장안내</div>
+		<div class="">최근 본 상품</div>
+	</div>
+
+			<div class="SMS_All_tabmenu_content">
+				<div class="tab_box">
+					<div class="tabSub_box">
+						<div class="tabSub_box_inner">
+							<ul>
+								<li class="padding"></li><!-- 간격 엘리먼트 -->
+								<li id="cate_toggle"><a href="#"><b>18' AUTUMN</b></a></li>
+								<li class="cate_toggle_inbody" style="display: block;">
+									<ul class="pad_i">
+										<li><a href="/shop/shopbrand.html?xcode=040&type=Y"><strong>신상품 회원할인 5%</strong></a></li>
+										<li><a href="/shop/shopbrand.html?xcode=040&type=Y">자체제작</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=032&type=Y">아우터</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=080&type=Y">니트 &amp; 가디건</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=031&type=Y">티셔츠</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=033&type=Y">블라우스</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=026&type=Y">셔츠</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=034&type=Y">스커트</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=070&type=Y">팬츠</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=035&type=Y">원피스</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=038&type=Y">잡화</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=036&type=Y">슈즈 &amp; 백</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=059&type=Y">오버사이즈<em>new</em></a></li>
+										<li><a href="/shop/shopbrand.html?xcode=062&type=Y">언더웨어</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=037&type=Y">J-RESS 쥬얼리</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=004&type=P">온라인 단독<em>new</em></a></li>
+										<li><a href="/shop/shopbrand.html?xcode=046&type=Y">오늘 주문하고 내일 입자</a></li>
+									</ul>
+								</li>
+
+								<li class="padding"></li><!-- 간격 엘리먼트 -->
+								<li><a href="/shop/shopbrand.html?xcode=024&type=P"><b>BEST SELLER</b></a></li>
+								<li><a href="/shop/shopbrand.html?xcode=021&type=Y"><b>스페셜프라이스</b></a></li>
+
+								<li class="padding"></li><!-- 간격 엘리먼트 -->
+								<li id="cate_toggle2"><a href="#"><b>TREND</b><b></b></a></li>
+								<li class="cate_toggle_inbody2" style="display: none;">
+									<ul class="pad_i">
+										<li><a href="/shop/shopbrand.html?xcode=053&mcode=001&type=Y">시그니처<em>new</em></a></li>
+										<li><a href="/shop/shopbrand.html?xcode=016&type=Y">오피셜 웨어</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=023&type=Y">데님웨어</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=023&type=Y">the basic</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=072&type=Y">셀프웨딩 ㅣ 하객룩</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=053&mcode=005&type=Y">데이웨어</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=053&mcode=006&type=Y">라운지웨어</a></li>
+									</ul>
+								</li>
+
+								<li id="cate_toggle3"><a href="#"><b>EDITORIAL</b><b></b></a></li>
+								<li class="cate_toggle_inbody3" style="display: none;">
+									<ul class="pad_i">
+										<li><a href="/shop/shopbrand.html?xcode=040&type=Y"># ROAD</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=032&type=Y"># RETRO</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=080&type=Y"># 18'SS PANTONE COLOR</a></li>
+										<li><a href="/shop/shopbrand.html?xcode=031&type=Y"># CHRISTMAS</a></li>
+									</ul>
+								</li>
+								<li><a href="/shop/shopbrand.html?xcode=021&type=Y"><b>스페셜 오더</b></a></li>
+
+								<!-- 게시판 -->
+								<li>
+									<ul class="hc_side_board">
+										<li><a href="/board/board.html?code=jjackiec_board4">고객리뷰</a></li>
+										<li class="hc_submenu hc_submenu_community"><a href="/board/board.html?code=jjackiec_board1">커뮤니티</a></li>
+										<li><a href="/board/board.html?s_id=&code=jjackiec_image8&page=1&type=s&review_type=&shname=ok&stext=event">이벤트</a></li>
+										<li><a href="/shop/page.html?id=1">브랜드 소개</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- 매장안내 -->
+				<div class="tab_box" style="display: none;">
+					<ul class="board_text_off">
+						<li class="off_tt_t">OFFLINE STORE</li>
+						<li><a href="/m/page.html?id=1#sms_ss01">강남점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss02">광교점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss03">광화문점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss04">서대문점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss05">신문로점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss06">여의도점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss07">태평로점</a></li>
+						<li class="off_tt_t">DEPARTMENT STORE</li>
+						<li><a href="/m/page.html?id=1#sms_ss08">롯데은평점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss14">롯데피트인산본점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss09">롯데노원점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss10">롯데영등포점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss11">롯데월드몰점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss12">롯데청량리점</a></li>
+						<li><a href="/m/page.html?id=1#sms_ss13">현대미아점</a></li>
+					</ul>
+				</div>
+
+				<div class="tab_box" style="display: none;">
+					<div class="SMS_idx_re SMS_recentHam" style="display:block">
+						<ul></ul>
+						<div class="re_ttx"><a href="/m/today_product.html">+ 최근 본 상품 전체보기</a></div>
+					</div>
+				</div>
+
+				<!-- 최근 본 상품 : TAP 기능 구현 -->
+			</div>
+
+			<!-- 로그인/ 고객센터/ PC 버전 -->
+			<div class="SMS_All_CopyRight">
+				<ul>
+					<!--/if_login/-->
+					<!-- crema.me / 로그인 회원 정보 / 스크립트를 수정할 경우 연락주세요 (support@crema.me) -->
+					<i id="crema-login-name" style="display:none;"><!--/user_name/--></i>
+					<i id="crema-login-username" style="display:none;"><!--/user_id/--></i>
+					<li><a href="<!--/link_logout/-->">로그아웃</a></li>
+					<!--/else/-->
+					<li><a href="/m/login.html">로그인</a></li>
+					<!--/end_if/-->
+					<li><a href="tel:<!--/shop_tel/-->">고객센터</a></li>
+					<li><a href="/index.html?ref=smartphone">PC 버전</a></li>
+				</ul>
+			</div>
+
+			<!-- 온라인에서 보고, 매장에서 입어보세요. -->
+			<div class="gotoOff">
+				<a href="/m/page.html?id=1">
+				<p>
+					<span class="SMSplus">+</span>
+					<span>온라인에서 보고,<br>매장에서 입어보세요.</span>
+				</p>
+				<span>온/오프라인 혜택이 동일합니다.</span>
+				</a>
+			</div>
+		</div>
+
+		<!-- JACKIE F&C INC ⓒ ALL RIGHTS RESERVED. -->
+        <div class="smartskinCopyRight">
+            <p>JACKIE F&amp;C INC., ⓒ ALL RIGHTS RESERVED.</p>
+        </div>
+
+		<!-- 홈/ 마이페이지 -->
+		<div class="hc_myHome">
+			<span><a href="#">홈</a></span>
+			<span><a href="/m/mypage.html">마이페이지</a></span>
+		</div>
+
+		<!-- SNS -->
+		<div class="ham_footDesign">
+			<ul>
+				<li>
+					<a href="http://blog.naver.com/jackielady" target="_blank"><img src="http://jjackiec.img7.kr/web/magjay_pc/2017_hncok/img/icon/icon_blog.png"></a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/pages/%EB%A7%A4%EA%B7%B8%EC%A0%9C%EC%9D%B4/226811834120996?ref=profile&amp;pnref=lhc" target="_blank"><img src="http://jjackiec.img7.kr/web/magjay_pc/2017_hncok/img/icon/icon_facebook.png" alt="페이스북"></a>
+				</li>
+				<li>
+					<a href="https://story.kakao.com/magjay" target="_blank"><img src="http://jjackiec.img7.kr/web/magjay_pc/2017_hncok/img/icon/icon_kakao.png" alt="카카오스토리"></a>
+				</li>
+				<li>
+					<a href="https://instagram.com/magjay_fashion" target="_blank"><img src="http://jjackiec.img7.kr/web/magjay_pc/2017_hncok/img/icon/icon_instagram.png" alt="인스타그램"></a>
+				</li>
+				<li>
+					<a href="http://www.magjay.com/board/board.html?code=jjackiec_image8&page=1&type=v&board_cate=&num1=999375&num2=00000&s_id=&stext=event&ssubject=&shname=ok&scontent=&number=392&lock=N"><img class="hc_change_img" src="http://magjay.co.kr/web/2018/fw/mobile/img/footer/icon_magjay.png" alt="APP" /></a>
+				</li>
+			</ul>
+		</div>
+    </div>
+</div>
+
+<div id="Hamburger">
+	<div id="HamburgerPage">
+		<div id="SMS_HamburgerClose"><!--<p>CLOSE</p>--></div>
+		<div id="SMS_HamburgerClose_right" ><p>CLOSE</p></div>
+		<div id="HamburgerPageContent"> <!-- 스마트 스킨 컨텐츠 시작 : footer 에서 END-->
+			<div class="SMSheaderContainer SMS_DA_header"><!--SMSheaderContainer START -->
+				<div id="header-container" style="<!--/head_bg_color/--><!--/head_bg_image/-->">
+					<!-- 상단 55px메뉴 시작 -->
+					<!-- SMSbookMarkBtn 북마크 클래스 -->
+					<div id="fix_position">
+						<div id="SMS_fixed_warp" class="SMS_fixed_warp">
+							<div class="SMS_fixed_inner">
+								<div class="fixed_logo">
+									<a href="<!--/link_home/-->">
+										<!--/if_img_shop_logo/-->
+										<img src="http://www.magjay.com/shopimages/jjackiec/mobile_web_logo.gif">
+										<!--/else/-->
+										<span><!--/shop_name/--></span>
+										<!--/end_if/-->
+									</a>
+								</div>
+								<div class="small_icon m_menu"><a id="menu"></a></div>
+								<div class="small_icon m_cart">
+									<a href="<!--/link_basket/-->"><!--/if_user_basket_count(+1)/--> <b class="count"><!--/user_basket_count/--></b><!--/end_if/--></a>
+								</div>
+							</div>
+							<div id="SMS_MainSearch" class="SMS_MainSearch"> <!-- 스마트뷰 topmodule_03-->
+								<div class="container_Box">
+									<ul>
+										<li class="search">
+											<form name="top_search" method="get" action="search.html" id="smartskinSearch">
+												<input type="hidden" value="new" name="search_sort">
+												<input type="hidden" value="" name="search_category">
+												<input type="text" name="s" value="">
+												<span class="search_btn" onclick="smartskinSearchSubmit(this)">검색</span>
+											</form>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 상단 55px메뉴 끝  -->
+				</div>
+			</div>
+
+			<!-- 어플에서 보기 웹페이지에서 보기 시작 -->
+			<aside id="SMS_AppWeb_wrap">
+				<div class="SMS_AppWeb_wrap_inbody">
+
+					<div class="top_appweb">
+						<div class="appweb_body">
+							안녕하세요 고객님!<br>
+							<!--/shop_name/--> <b>"어플"</b>을 통하여<br>
+							다양한 정보와 이벤트를 먼저 확인하세요!
+							<div class="app"><a>어플에서 보기</a></div>
+						</div>
+					</div>
+
+					<div class="btn_appweb">
+						<div class="web"><a>웹으로 보기</a></div>
+					</div>
+
+				</div>
+			</aside>
+			<!-- 어플에서 보기 웹페이지에서 보기 끝 -->
+
+			<!-- 팝업사이즈및 링크변경 -->
+
+			<!-- img 이미지경로 / href='#'" 터치 시 링크 변경 -->
+			<!-- saledays에 원하는 요일 띄어쓰기없이!, starttime에 원하는 시작시간, endtime에 원하는 마침시간 입력 -->
+			<div id="smartskinMain_popup_Ver" class="main_popup_box SMS_DA_popup" saledays="월화수목금토일" starttime="0" endtime="24">
+				<div class="main_popup_DisplayContainer">
+					<div class="main_popup_container">
+						<div class="main_popup_body">
+							<a href="#">
+								<img src="http://www.magjay.com/design/jjackiec/smartskin_2017/img/0803_delivery_popup.jpg">
+							</a>
+						</div>
+						<div class="main_popup_btn">
+							<a id="smartskinMain_popup_Ver2_Close_Btn" class="btn_close">CLOSE</a>
+							<span class="btn_todayClose"><input type="checkbox" id="smartskinMain_popup_Ver2_Close_Count" name="smartskinTodayClose" > Today Close</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 메인 접속시 전체 팝업 -->
+
+			<div class="SMS_Kakao"><img src="/design/jjackiec/smartskin_2017/img/180201Kakao.jpg" onclick="javascript:window.open('https://lc1.lunasoft.co.kr/lunachat/api-connect/@magjay/main', 'lunachat', 'width=1024, height=800');" style='cursor:pointer'></div>
+			<div class="SMS_TopBtn" onclick="location.href='#top'"><img src="http://magjay.co.kr/web/2018/fw/pc/img/footer/btn_top.png" alt="top" /></div>
+			<div class="SMS_BottomBtn" onclick="location.href='#bottom'"><img src="http://magjay.co.kr/web/2018/fw/pc/img/footer/btn_end.png" alt="end" /></div>
+
+			<!-- /////// 최근본상품 모듈 지우지마세요!! /////// -->
+			<div class="SMS_Recent" style="display: none;">
+			<!--/if_view_product/--><!--/block_view_product/--><ul><!--/loop_view_product_ajax(6)/--><li><a href="<!--/view_product_ajax@link/-->">
+			<dl><dd class="thumb"><img src="<!--/view_product_ajax@mobile_image/-->" class="img" /></dd>
+			<dd class="name"><!--/notag/view_product_ajax@name/--></dd></dl></a></li>
+			<!--/end_loop/-->
+			</ul><!--/end_block/--><!--/else/--><!--/end_if/-->
+			</div>
+			<!-- 최근본상품 모듈 지우지마세요!! -->
+
+			<!--/if_login/-->
+			<div id="SMS_IDcheckRmeberC" style="display: none;"><!--/user_id/--></div>
+			<!--/else/--><!--/end_if/-->
+
+			<div id="iosBookmark"><div class="iosB_text"><b></b>아이폰, 아이패드 계열은<br>아래의 메뉴에서<br>홈 화면에 추가하세요.<br></div><div class="isoB_btn"></div></div>
+
+			<!-- 찜하기 ALL MENU 모드 ON :: HTML : START -->
+			<div id="SMSLove_All_Btn_Wrap">
+				<div class="SMSLove_All_Btn_Container">
+					<div class="contents">
+						<div class="tit"><span class="on">상품을 찜 하셨습니다!</span>
+							<span class="off">찜 해제!</span></div>
+							<!--<div class="sub">하트를 누르시면</br>찜한상품을 모아서 볼 수 있어요!</div>-->
+						<a href="/m/page.html?id=6">상품 보러가기</a>
+					</div>
+				</div>
+			</div>
+			<!-- 찜하기 ALL MENU 모드 ON :: HTML : END -->

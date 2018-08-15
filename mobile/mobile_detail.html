@@ -1,0 +1,1075 @@
+<!--/include_header(1)/-->
+
+
+
+
+<!-- 본문 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0">
+<!-- snapfit start-->
+<script>
+
+   window.addEventListener("message", snap_sf_receiveMessage, false);
+   var snap_sf_resultview_window;
+      function snap_sf_receiveMessage(event) {
+       if (event.origin.indexOf('snapvi') != -1 || event.origin.indexOf('snapfit') != -1) {
+           var data = event.data;
+           if (!data || !data.match(/^{.*}$/g)) {
+               return;
+           }
+           var values = JSON.parse(data);
+           var params = values.params;
+           if (values.e == 'sf_popup') {
+
+
+
+               var url = params['src'];
+               var aIframe = document.createElement("iframe");
+               aIframe.setAttribute("id", 'snapfit_resultview_popup_full_iframe');
+               aIframe.setAttribute("name", "snapfit_resultview_popup_full_iframe");
+               aIframe.style.width = "100%";
+               aIframe.style.height = "100%";
+               aIframe.style.zIndex = "99999";
+               aIframe.style.position = "fixed";
+
+               aIframe.style.left = '0px';
+               aIframe.style.right = '0px';
+               aIframe.style.top = '0px';
+               aIframe.style.bottom = '0px';
+               aIframe.allowtransparency = true;
+               aIframe.frameborder = 0;
+               aIframe.src = url;
+               document.querySelector('body').appendChild(aIframe);
+
+       document.querySelector('body').style.overflow = 'hidden';
+       //document.querySelector('html').style.overflow = 'hidden';
+           } else if(values.e == 'sf_resultview_resize'){
+               var resultviewiframe = document.getElementById('snapfit_resultview_iframe')
+               if(resultviewiframe) {
+                   var iframeheight = params['height'];
+                   if(iframeheight > 50) {
+                       resultviewiframe.style.height = iframeheight + 'px';
+                   }
+               }
+           } else if(values.e == 'sf_close_popup'){
+
+               document.querySelector('body').style.overflow = 'visible';
+               document.querySelector('html').style.overflow = 'visible';
+
+               var fullpopup = document.getElementById('snapfit_resultview_popup_full_iframe')
+               if(fullpopup) {
+                   var parentnode = fullpopup.parentNode;
+                   if(parentnode)
+                       parentnode.removeChild(fullpopup);
+
+               }
+           } else if(values.e == 'snap_sf_post_to_resultviewmessage'){
+
+               document.querySelector('body').style.overflow = 'visible';
+               document.querySelector('html').style.overflow = 'visible';
+
+               var fullpopup = document.getElementById('snapfit_resultview_popup_full_iframe')
+               if(fullpopup) {
+                   var parentnode = fullpopup.parentNode;
+                   if(parentnode)
+                       parentnode.removeChild(fullpopup);
+
+               }
+               snap_sf_post_to_resultviewmessage(data);
+           }
+       }
+   }
+
+   function snap_sf_post_to_resultviewmessage(data) {
+       var iframe = document.getElementById('snapfit_resultview_iframe');
+       if(iframe && iframe.contentWindow) {
+           return data ? iframe.contentWindow.postMessage(data, '*') : false;
+       }
+   }
+</script>
+
+
+<!-- snapfit end  -->
+<div class="SMS_detail_mask"></div>
+
+
+<div id="SMS_shopdetailInfo">
+
+   <!-- container -->
+   <div id="container">
+       <!-- contents -->
+       <div id="contents">
+           <!-- main -->
+           <main class="shopdetail">
+               <section class="shopdetailInfo">
+                   <h2>
+                       <nav class="page_location">
+                           <ol class="clearFix">
+                               <li>
+                               <!--/if_cate1_name/--><span><a href="<!--/link_cate1/-->"><!--/cate1_name/--></a></span><!--/end_if/-->
+                               <!--/if_cate2_name/--><span><a href="<!--/link_cate2/-->"><!--/cate2_name/--></a></span><!--/end_if/-->
+                               <!--/if_cate3_name/--><span><a href="<!--/link_cate3/-->"><!--/cate3_name/--></a></span><!--/end_if/-->
+                               </li>
+                           </ol>
+                       </nav>
+
+
+                   </h2>
+
+
+
+
+
+
+
+
+                   <div class="SMS_ShopDetail_layout">
+
+                       <div class="SMS_ShopDetail_layout_left">
+
+                           <!-- 멀티이미지 다중이미지 -->
+                               <!--/if_multi_image/-->
+                                    <div id="multi_img">
+                                           <!--/multi_image/-->
+                                   </div>
+                                   <div class="swiper-container SMS_Multi_imgGallery">
+                                       <div class="swiper-wrapper">
+                                       </div>
+                                       <!-- Add Pagination -->
+                                       <div class="swiper-pagination"></div>
+                                       <!-- Add Arrows -->
+                                       <!-- <div class="swiper-button-next"></div>
+                                       <div class="swiper-button-prev"></div> -->
+
+                                   </div>
+
+                                   <div class="right_nave_test">우측 화면을 스크롤 하여 옵션을 선택해 주세요</div>
+
+                                   <!--/else/-->
+                                   <!-- 기본이미지 -->
+                                   <!-- 상품 이미지 -->
+                                   <div class="shopdetailInfoTop">
+                                       <figure>
+                                           <img src="<!--/mobile_image/-->" class="response100" alt=""/>
+                                       </figure>
+                                   </div>
+                                   <div class="right_nave_test">우측 화면을 스크롤 하여 옵션을 선택해 주세요</div>
+
+                               <!--/end_if/-->
+
+                           </div>
+
+
+
+                       <div class="SMS_ShopDetail_layout_right">
+                       <div class="shop_de_name">
+                           <div class="shop_name_in">
+                               <!--/if_subname/-->
+                               <div class="info_subname">
+                                   <!--/subname/-->
+                               </div>
+                               <!--/else/-->
+                               <!--/end_if/-->
+
+                               <span class="name"><!--/if_brand/--><!--/brand/--><!--/end_if/--></span>
+                               <div class="IconWrap"><!--/icons/--></div>
+
+                              <!--/if_subname/-->
+                                   <div class="shop_de_subname"><!--/notag/subname/--></div>
+                               <!--/end_if/-->
+                               <div class="SMS_icons"><!--/icons/--></div>
+                           </div>
+
+                           <div class="SMS_loveWish_detail">
+                               <div class="SMS_loveOn"></div>
+                               <div class="SMS_loveView"><a href="#">ALL</a></div>
+                           </div>
+
+                       </div>
+
+
+                       <div class="shopdetailInfoBottom">
+
+                           <!--/form_product/-->
+
+                           <div class="SMS_buy_quick_r">
+                               <div class="SMS_buy_quick_replace_p">
+
+
+
+
+                                           <div class="shopdetailInfoValue">
+                                               <div class="price_container">
+                                                   <!--/if_price_consumer(+1)/-->
+                                                   <p>
+                                                       <span class="shopdetailInfoName">소비자가</span>
+                                                       <span class="shopdetailInfoCont"><del><!--/number/price_consumer/-->원</del></span>
+                                                   </p>
+                                                   <!--/end_if/-->
+
+                                                   <!--/if_price_replace/-->
+                                                   <p class="shopdetailInfoDiscount bold">
+                                                       <span class="shopdetailInfoName">판매가</span>
+                                                       <span class="shopdetailInfoCont"><em><!--/price_replace/--></em><b class="won">원</b></span>
+                                                   </p>
+                                                   <!--/else/-->
+
+                                                   <!--/if_dc_price_sell/-->
+                                                       <p>
+                                                           <span class="shopdetailInfoName">판매가</span>
+                                                           <span class="shopdetailInfoCont"><del><!--/number/price_sell/-->원</del></span>
+                                                       </p>
+                                                       <p class="shopdetailInfoDiscount bold">
+                                                           <!--/if_discount_apply_type(mobile)/-->
+                                                           <span class="shopdetailInfoName"><span class="fa fa-mobile fa-lg"></span> 모바일가</span>
+                                                           <!--/else/-->
+                                                           <span class="shopdetailInfoName">기간 할인가</span>
+                                                           <!--/end_if/-->
+                                                           <span class="shopdetailInfoCont"><em><!--/number/dc_price_sell/--></em><b class="won">원</b><b class="dc_txt">(-<b class="dc_color"><!--/dc_text/--></b>) 할인</b></span>
+                                                       </p>
+
+
+                                                   <!--/else/-->
+                                                       <p class="shopdetailInfoDiscount bold">
+                                                           <span class="shopdetailInfoName">판매가</span>
+                                                           <span class="shopdetailInfoCont"><em><!--/number/price_sell/--></em><b class="won">원</b></span>
+                                                       </p>
+                                                       <!--/end_if/-->
+                                                       <!-- 상품페이지내 회원특가부분 옵션밑으로 적용 -->
+                                                       <!--/if_addcode/-->
+                                                           <!--/addcode/-->
+                                                       <!--/else/-->
+                                                       <!--/end_if/-->
+                                                    <!--/end_if/-->
+
+
+
+                                               </div>
+
+                                               <!-- 상품 코드 -->
+                                               <p>
+                                                   <span class="shopdetailInfoName">제품코드</span>
+                                                   <span class="shopdetailInfoCont"><!--/notag/name/--></span>
+                                               </p>
+
+                                               <!--/if_reserve(+1)/-->
+                                                   <p>
+                                                       <span class="shopdetailInfoName"><!--/if_used_mobile_reserve/--><span class="fa fa-mobile fa-lg"></span><!--/end_if/-->적립금</span>
+                                                       <span class="shopdetailInfoCont"><b class="reserve_color"><!--/number/reserve/--><!--/reserve_unit/--></b></span>
+                                                   </p>
+                                               <!--/end_if/-->
+                                               <!--/if_point(+1)/-->
+                                                   <p>
+                                                       <span class="shopdetailInfoName">포인트</span>
+                                                       <span class="shopdetailInfoCont"><!--/number/point/--><!--/point_unit/--></span>
+                                                   </p>
+                                               <!--/end_if/-->
+                                   <!--/if_origin/-->
+                                                   <p>
+                                                       <span class="shopdetailInfoName">원산지</span>
+                                                       <span class="shopdetailInfoCont"><!--/origin/--></span>
+                                                   </p>
+                                               <!--/end_if/-->
+                                               <!--/if_delivery_title/-->
+                                                   <p>
+                                                       <span class="shopdetailInfoName">배송비</span>
+                                                       <span class="shopdetailInfoCont"><a href="javascript:alert('<!--/delivery_detail/-->');"><span><!--/delivery_title/--></span> <span class="deli_info"></span> <span class="txt">49,000원 이상 결제시 무료배송</span></a>
+                                               <!--/if_link_delivery_country/--><a href="<!--/link_delivery_country/-->"><span class="region">지역별</span> <span class="fa fa-info-circle fa-lg"></span></a><!--/end_if/--></span>
+                                                   </p>
+                                               <!--/end_if/-->
+                                               <!--/if_nhn_mileage/-->
+                                                   <p>
+                                                       <span class="shopdetailInfoName">네이버 마일리지</span>
+                                                       <span class="shopdetailInfoCont"><!--/nhn_mileage/--></span>
+                                                   </p>
+                                               <!--/end_if/-->
+                                               <!--/if_weightdeli_use/-->
+                                                   <p>
+                                                       <span class="shopdetailInfoName">상품 무게</span>
+                                                       <span class="shopdetailInfoCont"><!--/weight/--></span>
+                                                   </p>
+                                               <!--/end_if/-->
+                                           </div>
+
+                                   </div>
+                               </div>
+
+
+
+                           <!-- ////////////////////////// 빠른구매 시작 ////////////////////////////////-->
+
+                           <div class="detail_mask"></div>
+
+
+                           <div id="SMSBuy_wrap_all">
+                               <div class="SMSBuy_wrap_close"><b></b></div>
+                              <div class="SMS_buy_menu_wrap">
+                                  <div class="SMSBuy_wrap_p"></div>
+                                  <div class="SMSBuy_wrap"></div>
+                              </div>
+                          </div>
+
+
+                           <div id="SMS_buy_menu" class="SMS_ShopDetaileBuy_btn">
+                               <div class="SMS_buy_menu_close"><b></b></div>
+                               <div class="bottom_qna"><a href="<!--/link_qna_board_more/-->">Q&amp;A</a></div>
+                               <div class="bottom_review"><a href="<!--/link_review_more/-->" class="crema-product-reviews-link" data-product-code="<!--/number/-->">고객리뷰</a></div>
+                               <div class="Buy_btn SMSdetail_quickbuy_btnTD"><span>구매하기</span></div>
+                               <div class="SMS_loveWish_detail">
+                                   <div class="SMS_loveOn"></div>
+                                   <div class="SMS_loveView"><a href="/m/page.html?id=1">ALL</a></div>
+                                </div>
+                           </div>
+
+
+                       <div class="SMS_buy_quick">
+                           <div class="SMS_buy_quick_replace">
+                               <article class="option_area">
+                                   <!-- 상품구매 고정버튼 영역 -->
+
+                                   <div class="fixed-btn">
+                                       <img src="/images/d3/m_04/bt_option@2x.png" width="67" height="18" alt="옵션열기" class="btn_option"/>
+                                       <a href="#" class="btn_Red SMSdetail_buy_btnTd">구매하기</a>
+                                   </div>
+                                   <!-- //상품구매 고정버튼 영역 -->
+
+
+
+
+                  <!-- ///////// 코드 에러시 기본 소스보기에서 option_tk div 교체 시작 ///////// -->
+                   <div class="option_tk">
+                               <!--/if_not_multi_option/-->
+
+                                   <!--/if_option/-->
+                                   <div class="shopdetailInfoSelect">
+                                       <!--/if_option/-->
+                                           <!--/loop_option/-->
+                                           <p>
+                                               <span class="shopdetailInfoName"><!--/option@title/--></span>
+                                               <span class="shopdetailInfoCont"><!--/option@select/--></span>
+                                           </p>
+                                           <!--/end_loop/-->
+                                       <!--/end_if/-->
+                                       <!--/if_not_multi_option_box/-->
+                                           <p class="shopdetailInfoCount">
+                                               <span class="shopdetailInfoName">수량</span>
+                                               <span class="shopdetailInfoCont"><!--/input_quantity/--><a href="<!--/link_quantity_up/-->"><span class="fa fa-plus"></span></a><a href="<!--/link_quantity_down/-->"><span class="fa fa-minus"></span></a></span>
+                                           </p>
+                                       <!--/end_if/-->
+                                       <!--/if_is_unify_option/-->
+                                           <!--/if_option_add/-->
+                                               <p class="add-option-sel">+ 추가 옵션 선택</p>
+                                               <!--/loop_option_add/-->
+                                               <p class="shopdetailInfoCount add-option">
+                                                   <span class="shopdetailInfoName"><!--/option_add@title/--></span>
+                                                   <span class="shopdetailInfoCont">
+                                                       <!--/option_add@select/-->
+                                                       <!--/option_add@input_quantity/-->
+                                                        <a class="minus" href="<!--/option_add@link_quantity_down/-->"><span class="fa fa-minus"></span></a>
+                                                       <a class="plus" href="<!--/option_add@link_quantity_up/-->"><span class="fa fa-plus"></span></a>
+                                                   </span>
+                                               </p>
+                                               <!--/end_loop/-->
+                                           <!--/end_if/-->
+                                       <!--/end_if/-->
+                                   </div>
+                                   <!--/end_if/-->
+
+                               <!--/if_not_multi_option_box/-->
+                                   <!--/if_option_price_sell/-->
+                                       <div class="shopdetailTotal">
+                                           <p>옵션 적용가 <em class="bold"><!--/number/option_price_sell/--></em>원</p>
+                                       </div>
+                                   <!--/end_if/-->
+                               <!--/end_if/-->
+                               <!--/end_if/-->
+
+                               <!--/if_multi_option/-->
+                               <div class="shopdetailInfoSelect">
+                                   <!--/if_multi_option/-->
+                                       <!--/loop_multi_option/-->
+                                       <!--/if_multi_option@title/-->
+                                           <p>
+                                               <span class="shopdetailInfoName"><!--/multi_option@title/--></span>
+                                               <span class="shopdetailInfoCont"><!--/multi_option@select/--></span>
+                                           </p>
+                                       <!--/else/-->
+                                           <p><!--/multi_option@select/--></p>
+                                       <!--/end_if/-->
+                                       <!--/end_loop/-->
+                                       <!--/if_is_unify_option/-->
+                                           <!--/if_link_option_select_complete/-->
+                                               <p class="opt-com">
+                                                   <a href="<!--/link_option_select_complete/-->">
+                                                       <!-- <img src="/images/d3/modern_simple/btn/btn_h18_select_complete.gif" title="옵션 선택 완료" alt="옵션 선택 완료" /> -->
+                                                       <b>옵션 선택 완료</b>
+                                                   </a>
+                                               </p>
+                                           <!--/end_if/-->
+                                       <!--/end_if/-->
+                                       <!--/if_is_unify_option/-->
+                                           <!--/if_multi_option_add/-->
+                                               <p class="add-option-sel">+ 추가 옵션 선택</p>
+                                               <!--/loop_multi_option_add/-->
+                                               <p>
+                                                   <span class="shopdetailInfoName"><!--/multi_option_add@title/--></span>
+                                                   <span class="shopdetailInfoCont"><!--/multi_option_add@select/--></span>
+                                               </p>
+                                               <!--/end_loop/-->
+                                           <!--/end_if/-->
+                                       <!--/end_if/-->
+
+                                   <!--/end_if/-->
+                               </div>
+                               <!--/end_if/-->
+
+
+                               <!--/if_is_unify_option/-->
+                                   <div class="shopdetailInfoMultiSelect">
+                                       <!-- 통합옵션 멀티옵션 수량, 가격 -->
+                                       <!--/if_multi_option_box/-->
+                                       <div class="MK_optAddWrap">
+                                           <div id="MK_innerOptWrap">
+                                               <div id="MK_innerOptScroll">
+                                                   <!--/multi_option_box/-->
+                                                   <!--/multi_option_add_box/-->
+                                               </div>
+                                               <div id="MK_innerOptTotal" class="total">
+                                                   <span class="MK_txt-total">총 상품 금액</span>
+                                                   <strong class="MK_total" id="MK_p_total"><!--/multi_option_total_price/--></strong><span class="MK_txt-won">원</span>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <!-- //통합옵션 멀티옵션 수량, 가격 -->
+                                       <!--/end_if/-->
+                                   </div>
+                                   <!--/else/-->
+                                   <div class="shopdetailInfoMultiSelect">
+                                       <!-- 멀티옵션 수량, 가격 -->
+                                       <!--/if_multi_option_box/-->
+                                           <!--/multi_option_box/-->
+                                       <!--/end_if/-->
+                                       <!-- //멀티옵션 수량, 가격 -->
+                                   </div>
+                               <!--/end_if/-->
+                   </div>
+
+                   <!-- snapfit start color chart popup-->
+  <div id = 'sfsnapfit_color_main' > </div>
+       <!-- snapfit end -->
+
+                   <!-- ///////// 코드 에러시 기본 소스보기에서 option_tk div 교체 끝 ///////// -->
+
+
+
+
+                                   <div class="buy_on">
+                                       <a href="<!--/link_wishlist/-->" class="SMSdetail_wish_btnTD"><span>관심제품</span></a>
+                                       <a href="<!--/link_basket/-->" class="SMSdetail_cart_btnTD"><span>장바구니</span></a>
+                                       <a href="<!--/link_immediate/-->" class="buy SMSdetail_buy_btnTD"><span>구매하기</span></a>
+                                   </div>
+
+                                   <div id="buy_on_tap"></div>
+
+                               </article>
+                           </div>
+                       </div>
+
+                   <!-- ////////////////////////// 빠른구매 끝 ////////////////////////////////-->
+
+
+
+
+
+
+                   <!-- ////////////////////////// 상단 구매 모듈 시작 ////////////////////////////////-->
+
+                           <!-- 상품 배송정보 영역 -->
+                           <!--/if_usergroup_name/-->
+                               <div class="shopdetailInfoDelivery">
+                                   <p><strong><!--/user_name/--></strong>님은 <!--/if_group_free_delivery/-->기본배송비가 무료인 <!--/end_if/--><!--/if_group_allfree_delivery/-->전체 배송비가 무료인 <!--/end_if/--><strong>[<!--/usergroup_name/-->]</strong>회원입니다.</p>
+                                   <p><!--/if_usergroup_reserve_message/-->(<!--/usergroup_reserve_message/-->)<br /><!--/end_if/--></p>
+                                   <!--/if_group_message/-->
+                                       <p><!--/group_message/--></p>
+                                   <!--/end_if/-->
+                               </div>
+                           <!--/end_if/-->
+                           <!-- //상품 배송정보 영역 -->
+                           <!-- 상품구매 버튼 영역 -->
+                           <div class="shopdetailButton">
+                               <div class="shopdetailButtonTop">
+                                   <!--/if_soldout/-->
+                                       <p>상품이 품절되었습니다.</p>
+                                   <!--/else/-->
+                                   <!--/if_selling/-->
+                                       <a href="<!--/link_immediate/-->" class="buy SMSdetail_buy_btnTD"><span>구매하기<b class="arrow"></b></span></a>
+
+                                       <!-- 실시간 재고 확인 버튼 -->
+                                       <div class="hc_realtimeBtn">
+                                           <a href="">실시간 재고 확인</a>
+                                           <!-- hncok : 옵션별 당일출고 -->
+                                           <!--/if_is_unify_option/-->
+                                           <!--/if_option_stock/-->
+                                           <div id="option_stock_wrap">
+                                               <h2>+ 실시간 재고 확인</h2>
+                                               <div id="hc_realtimeBtn_close">X</div>
+                                               <div class="nano">
+                                               <div class="nano-content">
+                                               <table id="option_stock_tbl" class="table table-condensed">
+                                                   <tr>
+                                                       <!--
+                                                           <th>옵션명</th>
+                                                           <th>현재고현황</th>
+                                                           <th>옵션비고</th>
+                                                        -->
+                                                       <!--/loop_option_stock(30)/-->
+                                                       <!--/block_option_stock(tr)/-->
+                                                       <td align="center"><!--/option_stock@name/--></td>
+                                                       <td align="center"><!--/option_stock@state/--></td>
+                                                       <td align="center"><!--/option_stock@note/--></td>
+                                                       <!--/end_block/-->
+                                                       <!--/end_loop/-->
+                                                   </tr>
+                                               </table>
+                                               </div>
+                                               </div>
+                                               <div><em>▶</em> <strong>당일배송</strong> : 평일 오후3시 이전 결제완료 주문은 당일출고됩니다.</div>
+                                               <div><em>▶</em> <strong>일반배송</strong> : 상품준비 후 출고까지 약 2-5일 소요됩니다.</div>
+                                               <div><em>▶</em> <strong>입고지연</strong> : 주문은 가능하지만, 배송기간에 여유를 두고 주문해 주세요.</div>
+                                               <div><em>▶</em> <strong>일시품절</strong> : 추후 진행여부는 고객센터로 문의해 주세요.</div>
+                                               <div><em>▶</em> <strong>품절</strong> : 판매 완료로 인해 더 이상 구매가 어려운 상품입니다.</div>
+
+                                           </div>
+                                           <!--/end_if/-->
+                                           <!--/end_if/-->
+                                           <!-- //hncok : 옵션별 당일출고 -->
+                                       </div>
+                                       <!-- //실시간 재고 확인 버튼 -->
+
+                                       <!--/if_is_smartpickup/-->
+                                           <a href="<!--/link_smartpickup/-->" class="shop_prd_check_c">매장 재고 검색</a>
+                                           <!--/else/-->
+                                           <a class="shop_prd_check_c">매장 재고 검색</a>
+                                      <!--/end_if/-->
+
+
+                                       <a href="<!--/link_basket/-->" class="cart SMSdetail_cart_btnTD"><span>장바구니</span></a>
+                                       <a href="<!--/link_wishlist/-->" class="wish SMSdetail_wish_btnTD"><span>관심제품</span></a>
+                                       <div class="wish SMSdetail_wish_btnTD hc_mySize" data-type="snapfit_resultview_iframe"><span>내 사이즈 찾기</span></div>
+                                   <!--/else/-->
+                                       <a href="<!--/link_wishlist/-->" class="wish SMSdetail_wish_btnTD">WISH LIST</a>
+                                       <p>선택하신 상품은 관리자에게 문의하세요.</p>
+                                   <!--/end_if/-->
+                                   <!--/end_if/-->
+
+                               </div>
+
+
+
+
+                               <div class="shopdetailButtonBottom">
+
+                                   <div class="shopdetailButtonBottomSNS">
+                                      <span class="snstt">MagJay Product SNS Share</span>
+                                      <!--/if_link_scrap_fb/-->
+                                          <a href="<!--/link_scrap_fb/-->" class="facebook"><img src="/design/jjackiec/smartskin_2017/img/facebo.png" alt="페이스북"/></a>
+                                      <!--/end_if/-->
+                                      <!--/if_link_scrap_tw/-->
+                                          <a href="<!--/link_scrap_tw/-->" class="twitter"><img src="/design/jjackiec/smartskin_2017/img/twiitbo.png" alt="트위터"/></a>
+                                      <!--/end_if/-->
+
+                                      <!--/if_link_scrap_ka/-->
+                                          <a href="<!--/link_scrap_ka/-->" class="katalk"><img src="/images/d3/m_powerpack/32/btn/btn_kakatalk.gif" alt="카카오톡"/></a>
+                                      <!--/end_if/-->
+                                      <!--/if_link_scrap_ks/-->
+                                          <a href="<!--/link_scrap_ks/-->" class="kastory"><img src="/design/jjackiec/smartskin_2017/img/kkst.png" alt="카카오스토리"/></a>
+                                      <!--/end_if/-->
+                                   </div>
+
+                                   <!--/if_btn_dgg/-->
+                                   <div class="dgg-checkout">
+                                       <!--/btn_dgg/-->
+                                   </div>
+                                   <!--/end_if/-->
+
+                                   <!-- 고정메뉴 -->
+                                   <ul class="hc_detailFixLink">
+                                       <li><a href="http://www.magjay.com/shop/mypage.html?mypage_type=myreserve">적립금</a></li>
+                                       <li>/</li>
+                                       <li style="text-align:center;"><a href="http://www.magjay.com/board/board.html?code=jjackiec_board1&page=1&type=v&board_cate=&num1=999934&num2=00000&number=62&lock=N">구매혜택</a></li>
+                                       <li>/</li>
+                                       <li><a href="http://www.magjay.com/board/board.html?code=jjackiec_board1">무이자</a></li>
+                                   </ul>
+
+                                   <!--/if_btn_nhn/-->
+                                   <div class="naver-checkout">
+                                       <!--/btn_nhn/-->
+                                   </div>
+                                   <!--/end_if/-->
+                               </div>
+                           </div>
+                           <!-- //상품구매 버튼 영역 -->
+                       </div>
+                       <!--/end_form/-->
+                       </div>
+                   </div>
+                   <!-- ////////////////////////// 상단 구매 모듈 끝 ////////////////////////////////-->
+               </section>
+
+<!-- 일반꼬마배너 -->
+          <!-- <div style="margin-bottom: 16px; padding: 0 20px;">
+                   <a href="http://www.magjay.com/board/board.html?code=jjackiec_image8&page=1&type=v&board_cate=&num1=999344&num2=00000&s_id=&stext=event&ssubject=&shname=ok&scontent=&number=422&lock=N"><img src="http://magjay.co.kr/web/2018/ss/mobile/m_info_fixBanner_brandday.jpg" style="width:100%"></a>
+               </div> -->
+
+
+<!-- 브랜드데이꼬마배너 -->
+<div style="margin-bottom: 16px; padding: 0 10px;">
+   <a href="http://www.magjay.com/m/page.html?id=1"><img src="http://magjay.co.kr/web/2018/ss/mobile/m_info_fixBanner_3.jpg" style="width:100%"></a>
+</div>
+
+<div style="margin-bottom: 50px; padding: 0 10px;" class="MobileApp">
+   <a href="/board/board.html?code=jjackiec_image8&page=1&type=v&board_cate=&num1=999375&num2=00000&s_id=&stext=event&ssubject=&shname=ok&scontent=&number=392&lock=N"><img src="http://magjay.co.kr/web/magjay_pc/view_banner01_m.jpg" style="width:100%"></a>
+</div>
+
+
+<!--/if_purchased_product/-->
+<!-- 스마트스킨 베스트 상품 노출 시작 -->
+<div id="SMSlistBestContainer1">
+<div class="swiper-container swiper_container_buymost">
+  <p class="smartskinBestListTitle">
+     <b>recommended items</b>
+     이 상품을 구매한 고객님들께서 가장 많이 구매한 베스트상품!
+   </p>
+   <div class="smartskinBestCon swiper-wrapper">
+   <!--/loop_purchased_product(8)/-->
+       <div class="swiper-slide">
+           <div onclick="location.href='<!--/purchased_product@link/-->'">
+               <p class="purchased_text b_num">purchased<b></b></p>
+               <p class="img"><span class="rank"></span><img src="<!--/purchased_product@image_s/-->"></p>
+               <p class="name"><!--/notag/purchased_product@name(50,..)/--></p>
+               <p class="price">
+               <!--/if_purchased_product@price_discount/-->
+                   <del><!--/number/purchased_product@price_sell/--> 원</del>
+               <!--/number/purchased_product@price_discount/-->원
+               <!--/else/-->
+                   <!--/if_purchased_product@price_consumer(+1)/-->
+                           <del><!--/number/purchased_product@price_consumer/-->원</del>
+                   <!--/end_if/-->
+                    <!--/number/purchased_product@price_sell/-->원
+               <!--/end_if/-->
+               </p>
+               <!--/if_purchased_product@is_term_discount/-->
+               <p class="smartskinListProductDateDiscount">
+                   ( 기간할인: <b><!--/purchased_product@discount_remain_term/--></b>)
+               </p>
+               <!--/end_if/-->
+           </div>
+       </div>
+   <!--/end_loop/-->
+   </div>
+   <!-- Add Pagination -->
+   <div class="swiper-pagination"></div>
+
+   <!-- Add Arrows -->
+   <!-- <div class="SMS_swiper_buttonNext"></div>
+   <div class="SMS_swiper_buttonPrev"></div> -->
+   </div>
+</div>
+ <!--/end_if/-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               <div id="shoptop"></div>
+               <div class="SMS_ShopDetail_subMenu">
+                       <ul>
+                           <li class="">
+                               <a href="#shoptop">PRODUCT</a>
+                           </li>
+
+                            <li>
+                               <!--/if_link_review_board_more/-->
+                               <a href="<!--/link_review_board_more/-->" class="crema-product-reviews-link" data-product-code="<!--/number/-->">REVIEW
+                                   <span class="count crema-product-reviews-count" data-product-code="<!--/number/-->" data-hide-if-zero="1"><!--/number/review_board_total_count/--></span>
+                               </a>
+                               <!--/end_if/-->
+                           </li>
+
+                           <li>
+                               <!--/if_link_qna_board_more/-->
+                               <a href="<!--/link_qna_board_more/-->">Q&amp;A<!--/if_qna_board_total_count(+1)/-->
+                                   <span class="count"><!--/number/qna_board_total_count/--></span>
+                                   <!--/end_if/-->
+                               </a>
+                               <!--/end_if/-->
+                           </li>
+
+                           <li class="">
+                               <a href="#packing_txwrap">교환/환불</a>
+                           </li>
+                       </ul>
+
+               </div>
+
+
+               <!--/if_coupon/-->
+               <div class="SMS_coupon_c">
+                   <!-- <section class="shopdetailCoupon">-->
+                       <!-- <h3>클릭 쿠폰 받기</h3> -->
+                       <div class="shopdetailCouponGet">
+                           <ul>
+                               <!--/loop_coupon/-->
+                                   <li>
+                                       <a href="<!--/coupon@link/-->"><!--/coupon@image/--></a>
+                                   </li>
+                               <!--/end_loop/-->
+                           </ul>
+                       </div>
+                   <!-- </section> -->
+               </div>
+               <!--/end_if/-->
+
+
+
+
+
+
+
+
+               <div class="SMS_view_big"></div>
+
+
+
+
+
+               <div class="shopdetailItem">
+                   <div class="shopdetailItemPopup">
+
+                   </div>
+                   <div class="shopdetailImage">
+
+
+
+                       <!--/mobile_detail/-->
+                   </div>
+
+
+
+
+                   <!-- snapfit start-->
+   <div id="sfsnapfit_main">
+       </div>
+       <span id='sfsnapfit_store_id' style='display:none'>magjay</span>
+               <div> <!-- 스냅핏 커스텀 -->
+                   <input id="sf_draw_type" type="hidden" value="mobile">
+                       <input id="sf_store_name" type = 'hidden' value = 'magjay'>
+
+               </div>
+       <!-- snapfit end -->
+
+                   <!--/if_related_product/-->
+                   <div id="SMS_related_product_view">
+                       <div class="SMS_related_Wrap">
+                           <section id="related_product_tk" class="shopdetailRelation">
+                               <h3>
+                                   <span>COORDINATION ITEMS</span>
+                                   <b>이 상품과 코디된 상품 입니다.</b>
+                               </h3>
+                               <!--/form_related_product/-->
+                               <div class="list_shoppingRelationItem1x">
+                                   <ul class="clearFix">
+                                       <!--/loop_related_product(4)/-->
+                                       <li>
+                                           <figure>
+                                               <div><a href="<!--/related_product@link/-->"><img src="<!--/related_product@image_s/-->" class="listPic" alt=""/></a></div>
+                                               <figcaption class="list_shoppingInfo">
+                                                   <!--/related_product@checkbox/-->
+                                                   <p class="listName bold"><!--/notag/related_product@name/--></p>
+                                                   <!--/if_related_product@price_discount/-->
+                                                   <p class="listPrice">
+                                                       <!--/if_related_product@price_replace/-->
+                                                           <del><!--/related_product@price_replace/--></del>
+                                                       <!--/else/-->
+                                                           <del><!--/number/related_product@price_sell/-->원</del>
+                                                       <!--/end_if/-->
+                                                   </p>
+                                                   <p>
+                                                       <!--/if_related_product@discount_apply_type(mobile)/--><span class="fa fa-mobile fa-lg"></span> <b>모바일가</b>
+                                                       <!--/else/-->
+                                                       <!--/end_if/--><!--/number/related_product@price_discount/-->원
+                                                   </p>
+                                                   <!--/else/-->
+                                                   <p class="listPrice">
+                                                       <!--/if_related_product@price_replace/-->
+                                                           <!--/related_product@price_replace/-->
+                                                       <!--/else/-->
+                                                           <!--/number/related_product@price_sell/-->원
+                                                       <!--/end_if/-->
+                                                   </p>
+                                                   <!--/end_if/-->
+                                                   <!--/if_related_product@reserve_price(+1)/-->
+                                                   <p class="listReserve"><!--/if_related_product@used_mobile_reserve/--><span class="fa fa-mobile fa-lg"></span><!--/end_if/--><!--/number/related_product@reserve_price/-->원</p>
+                                                   <!--/end_if/-->
+
+
+                                               </figcaption>
+                                           </figure>
+                                       </li>
+                                       <!--/end_loop/-->
+                                   </ul>
+
+
+
+                               </div>
+
+                                 <a href="<!--/link_related_basket/-->" class="btn_Black">선택상품 장바구니 담기</a>
+
+
+                               <!--/end_form/-->
+                           </section>
+                       </div>
+                   </div>
+
+
+                       <!--/end_if/-->
+                       <!--/if_product_info/-->
+                       <section class="shopdetailNotify">
+                           <h3 class="btn_toggle">상품 고시 정보 <span class="fa fa-caret-down"></span></h3>
+                           <div class="shopdetailNotifyInfo" style="display:none;">
+                               <dl>
+                                   <!--/loop_product_info/-->
+                                   <dt>ㆍ<!--/product_info@title/--></dt>
+                                   <dd><!--/product_info@content/--></dd>
+                                   <!--/end_loop/-->
+                               </dl>
+                           </div>
+                       </section>
+                       <!--/end_if/-->
+                       <!--/if_mobile_shop_policy/-->
+                       <section class="shopdetailRelation">
+                           <h3 class="btn_toggle">교환/반품/환불/취소 <span class="fa fa-caret-down"></span></h3>
+                           <div style="display:none;">
+                               <!--/mobile_shop_policy/-->
+                           </div>
+                       </section>
+                       <!--/end_if/-->
+
+
+
+
+
+
+                <div style="padding: 0 15px;">
+                 <img src="http://jjackiec.img7.kr/web/wibimages/view_review_qbanner.jpg" style="width:100%">
+              </div>
+
+
+
+                    <div id="packing_txwrap"></div>
+                   <div id="packing_txwrap_btn">exchange &amp; refund</div>
+                   <div class="packing_txwrap clear">
+                       <h1>
+                           <b>상품 교환 및 환불에 대한 안내입니다.</b>
+                       </h1>
+                       <ul class="packing_txwrap_contents">
+                           <li>
+                               <div>
+                                   <div>
+                                       <strong class="brd_n">배송일정</strong>
+                                       <p>
+                                           MAGJAY MAKE 상품 : 주문 후, 약 1-4일 일반상품 : 주문 후, 약 1-7일 슈즈·가방 악세사리 등 주문제작 상품:  주문 후 ,  약 7-10일 정도 소요됩니다. (휴일 제외)
+                                       </p>
+                                       <p class="mgtt20">
+                                           5만원 이상 구매시 무료배송 (5만원 미만 결제 시 2,500원 부과), 무통장 입금 시 입금 확인일을 기준으로 합니다. (주문 시 주문자명과 실제
+                                           입금자명이 다를 경우, 입금 확인은 Q&amp;A게시판 또는 고객센터 (1544-3277)로 연락 부탁드립니다)
+                                       </p>
+                                   </div>
+                               </div>
+                               <div>
+                                   <div>
+                                       <strong>교환&amp;반품이 되지<br>않는 경우</strong>
+                                       <p>
+                                           교환 및 반품 기간이 경과된 상품. 향수, 섬유유연제 등의 향이 베어 있는 경우, 착용 및 세탁을 한 경우, 고객님의 부주의로 인해 상품 가치 훼손한 경우에는  7일 이내 라도 교환 및 반품이 불가합니다.
+                                       </p>
+                                   </div>
+                               </div>
+                               <div>
+                                   <div>
+                                       <strong>소비자 피해보상의 처리<br>및 상품 문의</strong>
+                                       <p class="al_center">A/S 소비자 상담 1544-3277</p>
+                                   </div>
+                               </div>
+                           </li>
+                           <li>
+                               <div>
+                                   <div>
+                                       <strong>교환&amp;반품</strong>
+                                       <p>
+                                           상품 수령 후 7일 이내에 고객센터로 접수하시고, 동봉된 ‘교환 반품 신청서’
+                                           를 작성하셔서 보내주세요. <br>
+                                           교환/반품은 반드시  CJ 대한통운 (1588-1255)을 이용하여 주시기 바랍니다. 임의 반품은 접수 처리되지 않습니다. <br>
+                                           사이즈 교환의 경우 고객님께서 왕복 배송료(5,000원) 부담, 제품의 불량 등 당사 과실로 인한 반품 배송료는 매그제이에서 부담합니다. <br>
+                                           색상은 모니터 해상도에 따라 다르게 보일 수 있습니다.
+                                       </p>
+                                   </div>
+                               </div>
+                               <div>
+                                   <div>
+                                       <strong>교환&amp;반품 시 상품 상태</strong>
+                                       <p>
+                                           처음 배송 시의 상태를 유지(옷걸이,폴리백 등)해야 하며, 상품 박스/ 포장 폴리백으로 보내주시기 바랍니다. 사은품을 받으신 경우, 함께 배송해주셔야 교환 및 반품 처리 가능합니다.
+                                       </p>
+                                   </div>
+                               </div>
+                               <div>
+                                   <div>
+                                       <strong>품질보증 기준</strong>
+                                       <p>
+                                           제품은 철저한 품질 관리와 공정 관리를 거쳐 생산되었으며 외관, 규격 검사에서 합격한 제품입니다.  본 제품의 수명을 연장하기 위하여 취급 주의사항과 세탁 방법을 필히 확인해주시기 바랍니다.  본 제품의 품질에 이상이 있는 경우 소비자 상담실로 연락해주시기 바랍니다.
+                                           소비자 취급 부주의  또는 품질보증 기간이 경과된 제품은 피해보상의 책임을 지지 않습니다.<br>
+                                            * 품질 보증 기간 : 구입일로부터 1년
+                                       </p>
+                                   </div>
+                               </div>
+                           </li>
+                       </ul>
+                   </div>
+
+
+
+
+
+
+               </div>
+
+
+
+           </main>
+           <!-- //main -->
+       </div>
+       <!-- //contents -->
+   </div>
+
+</div>
+<!-- //container -->
+
+
+<style>
+.SMS_Multi_imgGallery .swiper-slide img {
+width: 100%;
+max-width: 100%;
+height: auto;
+padding: 0;
+text-align: center;
+margin: 0 auto;
+display: block;
+}
+
+/* 네이버 높이값 확인 */
+.nc_button_box .nc_button,
+.nc_button_box .nc_button .nc_btnarea .nc_btn div{
+height: auto !important;
+}
+
+.SMS_recentIconInbody .SMS_recentIcon {
+   bottom: 97px;
+}
+
+#SMSQuickmenu{
+bottom: 47px;
+}
+
+#layerShopChoice{
+z-index: 9999 !important;
+}
+   .main_menu_list ul li:first-child{border-top:1px solid #e3e3e3;}
+
+.npay_type_MA_1 {
+   width: 100% !important;
+}
+</style>
+
+
+
+
+<script type="text/javascript">
+$("#multi_img tr td img").each(function(i,v){
+   var multi_img_list = $(this).attr("src");
+   $(".SMS_Multi_imgGallery .swiper-wrapper").append('<div class="swiper-slide"><img src='+ multi_img_list +'></div>');
+   $("#multi_img").remove();
+});
+
+$(function() {
+   // 최근본상품 on/off
+   $('div.recent-btn a').on('click', function(e) {
+       if ($(this).hasClass('off')) {
+           $(this).removeClass('off').addClass('on');
+           $('#recents').show();
+       } else {
+           $(this).removeClass('on').addClass('off');
+           $('#recents').hide();
+       }
+   });
+});
+</script>
+
+
+<!-- 스마트스킨 코드 시작 :: 지우지 마세요 -->
+<div id="SMS_TD_detail_obj">
+   <div id="SMS_TD_detail_body" style="display:none">
+       <div id="SMS_TD_name" style="display:none"><!--/name/--></div>
+       <div id="SMS_TD_subname" style="display:none"><!--/notag/subname/--></div>
+       <div id="sms_td_consumer" style="display:none"><!--/price_consumer/--></div>
+       <div id="sms_td_re" style="display:none"><!--/price_replace/--></div>
+       <div id="sms_td_dc" style="display:none"><!--/dc_price_sell/--></div>
+       <div id="sms_td_fshe" style="display:none"><!--/price_sell/--></div>
+   </div>
+</div>
+<script>
+try{var sms_td_name=document.getElementById("SMS_TD_name").innerHTML;var sms_td_subname=document.getElementById("SMS_TD_subname").innerHTML;var sms_td_consumer=document.getElementById("sms_td_consumer").innerHTML;var sms_td_re=document.getElementById("sms_td_re").innerHTML;var sms_td_dc=document.getElementById("sms_td_dc").innerHTML;var sms_td_fshe=document.getElementById("sms_td_fshe").innerHTML;var td_xcode=SMS_TD_util.x_code("<!--/link_cate1/-->");var td_mcode=SMS_TD_util.m_code("<!--/link_cate2/-->");var td_scode=SMS_TD_util.s_code("<!--/link_cate3/-->");var SMS_TD_detail={detail_prd_name:SMS_TD_util.html_re(sms_td_name),detail_prd_subname:SMS_TD_util.html_re(sms_td_subname),detail_prd_number:"<!--/number/-->",detail_prd_reserve:"<!--/reserve/-->",detail_prd_point:"<!--/point/-->",<!--/if_soldout/-->detail_prd_soldout:true,<!--/else/-->detail_prd_soldout:false,<!--/end_if/-->detail_prd_ordstock:"<!--/order_stock/-->",detail_review_qna:{<!--/if_link_review_board_more/--><!--/if_review_board_total_count(+1)/-->detail_prd_boardreview:"<!--/review_board_total_count/-->",<!--/else/-->detail_prd_boardreview:0,<!--/end_if/--><!--/end_if/--><!--/if_link_review_more/--><!--/if_review_total_count(+1)/-->detail_prd_review:"<!--/review_total_count/-->",<!--/else/-->detail_prd_review:0,<!--/end_if/--><!--/end_if/--><!--/if_qna_board_total_count(+1)/-->detail_prd_qna:"<!--/qna_board_total_count/-->",<!--/else/-->detail_prd_qna:0,<!--/end_if/-->},detail_cate:{now_cate:"<!--/now_cate_name/-->",cate1:{name:"<!--/cate1_name/-->",code:td_xcode},cate2:{name:"<!--/cate2_name/-->",code:td_mcode},cate3:{name:"<!--/cate3_name/-->",code:td_scode}},detail_img:{img_mobile:"<!--/mobile_image/-->",img_small:"<!--/image_s/-->",img_middle:"<!--/image_m/-->",img_large:"<!--/image_l/-->"},detail_price:{prd_custom:"",prd_replace:"",prd_dc:"",prd_sell:"",prd_price:""}};<!--/if_price_consumer(+1)/-->SMS_TD_detail.detail_price.prd_custom=SMS_TD_util.html_re(sms_td_consumer);<!--/end_if/--><!--/if_price_replace/-->SMS_TD_detail.detail_price.prd_replace=SMS_TD_util.html_re(sms_td_re);<!--/else/--><!--/if_dc_price_sell/-->SMS_TD_detail.detail_price.prd_dc=SMS_TD_util.html_re(sms_td_dc);SMS_TD_detail.detail_price.prd_sell=SMS_TD_util.html_re(sms_td_fshe);<!--/end_if/--><!--/end_if/-->SMS_TD_detail.detail_price.prd_price=SMS_TD_util.html_re(sms_td_fshe);SMS_TD_DataObj.SMS_TD_pagelist.SMS_TD_detail=SMS_TD_detail;(function(){function sms_td_onload(){setTimeout(function(){var sms_cr_classCheck=document.querySelectorAll(".crema-product-reviews-count");if(sms_cr_classCheck.length>0){var sms_review_inhtml=sms_cr_classCheck[0].innerHTML;detail_prd_review=SMS_TD_util.num_re(sms_review_inhtml);SMS_TD_DataObj.SMS_TD_pagelist.SMS_TD_detail.detail_review_qna.detail_prd_review=detail_prd_review}},1000)}window.attachEvent?window.attachEvent('onload',sms_td_onload):window.addEventListener('load',sms_td_onload,false)})();var SMS_data_parm="p_id"+SMS_TD_detail.detail_prd_number+"&c_xno="+td_xcode+"&c_mno="+td_mcode+"&c_sno="+td_scode;SMS_TD_util.init(SMS_data_parm)}catch(e){}
+</script>
+<!-- 스마트스킨 코드 끝 :: 지우지 마세요 -->
+
+
+<!--/include_footer(1)/-->
+
+<!-- snapfit start-->
+      <script async type="text/javascript" src="//snapfit.co.kr/js/sf_init_snapfit_detail_m_frame.js" defer='true' charset="utf-8"></script>
+      <!-- snapfit end  -->
+
+
+<!-- WIDERPLANET ITEM SCRIPT START 2016.3.7 -->
+<script type='text/javascript'>var wp_page_type='Item';</script>
+<span style="display:none;" name="wp_detection" tag="i">[BRANDUID]</span>
+<!-- // WIDERPLANET ITEM SCRIPT END 2016.3.7 -->
+
+
+<!-- AppWhole Umzzi DA 상품수집 [20170628] -->
+<div hidden class="aw-product" style="display:none">
+   <div data-product-property="id"><!--/number/--></div>
+   <div data-product-property="title"><!--/name/--></div>
+   <div data-product-property="image_link">//magjay.com<!--/image_m/--></div>
+   <div data-product-property="price"><!--/if_package_total_price/--><!--/package_total_price/--><!--/else/--><!--/if_dc_price_sell/--><!--/dc_price_sell/--><!--/else/--><!--/price_sell/--><!--/end_if/--><!--/end_if/--></div>
+   <div data-product-property="product_type"><!--/if_cate1_name/--><!--/cate1_name/--><!--/end_if/--><!--/if_cate2_name/--><!--/cate2_name/--><!--/end_if/--><!--/if_cate3_name/--><!--/cate3_name/--><!--/end_if/--></div>
+   <div data-product-property="brand">magjay</div>
+   <div data-product-property="description"><!--/if_subname/--><!--/subname/--><!--/else/--><!--/name/--><!--/end_if/--></div>
+</div>
+<!-- AppWhole Umzzi DA 상품수집 [20170628] -->
+
+
+<!-- crema.me / 팝업을 띄우는 코드 / 스크립트를 수정할 경우 연락주세요 (support@crema.me) -->
+<div class="crema-popup"></div>
+
+<!-- crema.me / Mobile 리뷰 초기화 / 스크립트를 수정할 경우 연락주세요 (support@crema.me) -->
+<script>(function(i,s,o,g,r,a,m){if(s.getElementById(g)){return};a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.id=g;a.async=1;a.src=r;m.parentNode.insertBefore(a,m)})(window,document,'script','crema-jssdk','//widgets.cre.ma/mobile/reviews/init.js?domain=magjay.com');</script>
